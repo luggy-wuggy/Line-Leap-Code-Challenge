@@ -3,6 +3,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:line_leap/global/colors.dart';
+import 'package:line_leap/widgets/header_banner.dart';
+import 'package:line_leap/widgets/search_bar.dart';
 
 import 'global/text_style.dart';
 
@@ -47,6 +49,13 @@ class _HomePageState extends State<HomePage>
     curve: Curves.easeInOutSine,
   ));
 
+  List<String> widgetList = [
+    'test',
+    'test',
+    'test',
+    'test',
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -73,7 +82,78 @@ class _HomePageState extends State<HomePage>
             controller: _scrollController,
             child: Column(
               children: [
-                Image.asset('assets/banner.png'),
+                Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Image.asset('assets/banner.png'),
+                    const SearchBar(),
+                  ],
+                ),
+                const SizedBox(height: 80),
+                Container(
+                  width: 1120,
+                  height: 1120,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Event Tickets',
+                        style: subHeadlineTextStyle,
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      SizedBox(
+                        height: 900,
+                        width: 1120,
+                        child: GridView.count(
+                          crossAxisCount: 3,
+                          childAspectRatio: 352 / 449,
+                          crossAxisSpacing: 32,
+                          mainAxisSpacing: 32,
+                          children: widgetList.map((String value) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: eventCardColor,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                              ),
+                              margin: const EdgeInsets.all(1.0),
+                              child: Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(8),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/Event Image1@4x.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 24),
+                                    child: Text(
+                                      'Diplo Presents: Higher Ground',
+                                      style: cardTitleTextStyle,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    'Diplo',
+                                    style: cardDescriptionTextStyle,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Container(
                   width: 80,
                   height: 900,
@@ -83,72 +163,8 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           HeaderAppBar(_offsetAnimation)
-          // _scrollController.hasClients && _scrollController.offset == 0.0
-          //     ? HeaderAppBar(_offsetAnimation)
-          //     : Container()
         ],
       ),
     ));
-  }
-}
-
-class HeaderAppBar extends StatelessWidget {
-  late Animation<Offset> offsetAnimation;
-
-  HeaderAppBar(this.offsetAnimation, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: double.infinity,
-      color: bannerColor,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            'assets/logo.png',
-            scale: 0.7,
-          ),
-          Text(
-            'Brand Ambassador',
-            style: bannerTextStyle,
-          ),
-          Text(
-            'Venue Owners',
-            style: bannerTextStyle,
-          ),
-          Text(
-            'Buy Passes',
-            style: bannerTextStyle,
-          ),
-          Image.asset(
-            'assets/search-light@4x.png',
-            scale: 0.5,
-          ),
-          Container(
-            height: 75,
-            width: 160,
-            decoration: BoxDecoration(
-              color: buttonColor,
-              borderRadius: const BorderRadius.all(Radius.circular(15),
-            ),
-            child: Center(
-              child: Text(
-                'Download the App',
-                style: bannerTextStyle,
-              ),
-            ),
-          ),
-          Image.asset(
-            'assets/My Account@4x.png',
-          ),
-          Text(
-            'My Account',
-            style: bannerTextStyle,
-          ),
-        ],
-      ),
-    );
   }
 }

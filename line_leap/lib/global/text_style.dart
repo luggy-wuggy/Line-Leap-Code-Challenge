@@ -1,7 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-TextStyle bannerTextStyle = const TextStyle(
-  color: Colors.white,
-  fontWeight: FontWeight.bold,
-  fontSize: 18,
+TextStyle bannerTextStyle = GoogleFonts.lato(
+  textStyle: const TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+  ),
 );
+
+TextStyle subHeadlineTextStyle = GoogleFonts.lato(
+  textStyle: const TextStyle(
+    color: Colors.white,
+    fontSize: 32,
+  ),
+);
+
+TextStyle cardTitleTextStyle = GoogleFonts.lato(
+  textStyle: const TextStyle(
+    color: Colors.white,
+    fontSize: 24,
+  ),
+);
+
+TextStyle cardDescriptionTextStyle = GoogleFonts.lato(
+  textStyle: const TextStyle(
+    color: Color(0xFF8c96a1),
+    fontSize: 24,
+  ),
+);
+
+// const TextStyle(
+//   color: Colors.white,
+//   fontSize: 32,
+//   fontFamily: 
+// );
