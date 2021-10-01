@@ -3,9 +3,7 @@ import 'package:line_leap/global/colors.dart';
 import 'package:line_leap/global/text_style.dart';
 
 class HeaderAppBar extends StatelessWidget {
-  late Animation<Offset> offsetAnimation;
-
-  HeaderAppBar(this.offsetAnimation, {Key? key}) : super(key: key);
+  const HeaderAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

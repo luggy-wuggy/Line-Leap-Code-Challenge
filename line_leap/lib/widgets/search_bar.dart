@@ -92,7 +92,7 @@ class SearchBar extends StatelessWidget {
             child: Center(
               child: Text(
                 'Search',
-                style: bannerTextStyle,
+                style: buttonTextStyle,
               ),
             ),
           ),
