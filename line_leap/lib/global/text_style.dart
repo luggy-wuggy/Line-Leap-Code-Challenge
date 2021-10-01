@@ -64,9 +64,3 @@ TextStyle buttonTextStyle = GoogleFonts.lato(
     fontSize: 18,
   ),
 );
-
-// const TextStyle(
-//   color: Colors.white,
-//   fontSize: 32,
-//   fontFamily: 
-// );
